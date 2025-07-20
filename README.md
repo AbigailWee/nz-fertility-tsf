@@ -28,15 +28,15 @@ Fertility rates in New Zealand have experienced significant changes from 1960 to
 
 #### 🔶 Split the data into training (70%) and testing (30%) sets, calculate forecasts using the selected methods, and optimize parameters if necessary. Compare observed and forecast values.
 
-                                                  Simple Exponential Smoothing Model
+                                          Simple Exponential Smoothing Model
 
   ![Screenshot 2024-10-22 001904](https://github.com/user-attachments/assets/6a0d39d8-dce2-45ef-bdb3-6037d07924cb)
   
-                                                        Holt's Linear Trend Model
+                                                Holt's Linear Trend Model
 
   ![Screenshot 2024-10-22 001916](https://github.com/user-attachments/assets/c092b5d7-93d1-4eb3-ba04-ae67034abc95)
 
-                                                            Cubic Trend Model
+                                                    Cubic Trend Model
                                                         
   ![Screenshot 2024-10-22 001925](https://github.com/user-attachments/assets/443187c4-eb9f-4079-85bd-ed94a77ae80d)
 
@@ -84,16 +84,16 @@ Fertility rates in New Zealand have experienced significant changes from 1960 to
 
 #### 🔶 Provide summaries, model equations, and assess model adequacy of the two models developed.
 
-                                            Output summary for the ARIMA(1,2,1) model  
+                                         Output summary for the ARIMA(1,2,1) model  
 ![Screenshot 2024-10-22 020014](https://github.com/user-attachments/assets/12d57c45-f46c-46d1-b560-f7fc20c0e777)
 
-                                            Output summary for the ARIMA(0,2,1) model
+                                         Output summary for the ARIMA(0,2,1) model
 ![Screenshot 2024-10-22 020006](https://github.com/user-attachments/assets/861db331-ddf8-42cd-89c1-d5c9bf52cd79)
 
-                                            Model Equation for the ARIMA(1,2,1) model 
+                                        Model Equation for the ARIMA(1,2,1) model 
 ![Screenshot 2024-10-22 104823](https://github.com/user-attachments/assets/09b2b060-62b2-4583-b050-4c8b164bb5e6)
 
-                                            Model Equation for the ARIMA(0,2,1) model 
+                                        Model Equation for the ARIMA(0,2,1) model 
 ![Screenshot 2024-10-22 104830](https://github.com/user-attachments/assets/9cffd407-65b1-48fe-aafb-ef897065a665)
 
     To assess the adequacy of both models, the `checkresiduals()` function was used, focusing on two aspects: the Ljung-Box test and the ACF plot of the residuals.
