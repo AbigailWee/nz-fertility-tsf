@@ -28,7 +28,7 @@ Fertility rates in New Zealand have experienced significant changes from 1960 to
 
 #### 🔶 Split the data into training (70%) and testing (30%) sets, calculate forecasts using the selected methods, and optimize parameters if necessary. Compare observed and forecast values.
 
-                                          Simple Exponential Smoothing Model
+                                      Simple Exponential Smoothing Model
 
   ![Screenshot 2024-10-22 001904](https://github.com/user-attachments/assets/6a0d39d8-dce2-45ef-bdb3-6037d07924cb)
   
