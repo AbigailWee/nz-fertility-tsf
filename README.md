@@ -32,7 +32,7 @@ Fertility rates in New Zealand have experienced significant changes from 1960 to
 
   ![Screenshot 2024-10-22 001904](https://github.com/user-attachments/assets/6a0d39d8-dce2-45ef-bdb3-6037d07924cb)
   
-                                                Holt's Linear Trend Model
+                                            Holt's Linear Trend Model
 
   ![Screenshot 2024-10-22 001916](https://github.com/user-attachments/assets/c092b5d7-93d1-4eb3-ba04-ae67034abc95)
 
