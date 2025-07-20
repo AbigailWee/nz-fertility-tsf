@@ -20,32 +20,32 @@ The Mann-Kendall trend test confirms the trend component, rejecting the null hyp
 
 The three forecasting methods chosen are Simple Exponential Smoothing (SES), Holt’s Linear Trend model, and the Cubic Trend model.
 
-👉 SES smooths the data and is best for series without significant trends or seasonality. Although the data has a trend, SES was chosen for its simplicity as a baseline to compare against more complex models.
+1. SES smooths the data and is best for series without significant trends or seasonality. Although the data has a trend, SES was chosen for its simplicity as a baseline to compare against more complex models.
 
-👉 Holt’s Linear Trend model builds on SES by incorporating both level and trend components, making it suitable for data with trends. Given the trend in the fertility data, Holt’s model was chosen to handle both level and trend adjustments in the forecast.
+2. Holt’s Linear Trend model builds on SES by incorporating both level and trend components, making it suitable for data with trends. Given the trend in the fertility data, Holt’s model was chosen to handle both level and trend adjustments in the forecast.
 
-👉 A polynomial regression model, the Cubic Trend model captures non-linear trends using quadratic and cubic terms. Its ability to handle complex patterns makes it ideal for forecasting New Zealand’s fertility rates, which follow a cubic trajectory.
+3. A polynomial regression model, the Cubic Trend model captures non-linear trends using quadratic and cubic terms. Its ability to handle complex patterns makes it ideal for forecasting New Zealand’s fertility rates, which follow a cubic trajectory.
 
 #### 🔶 Split the data into training (70%) and testing (30%) sets, calculate forecasts using the selected methods, and optimize parameters if necessary. Compare observed and forecast values.
 
-**Simple Exponential Smoothing Model**  
+**1. Simple Exponential Smoothing Model**  
 ![Screenshot 2024-10-22 001904](https://github.com/user-attachments/assets/6a0d39d8-dce2-45ef-bdb3-6037d07924cb)
 
-**Holt's Linear Trend Model**  
+**2. Holt's Linear Trend Model**  
 ![Screenshot 2024-10-22 001916](https://github.com/user-attachments/assets/c092b5d7-93d1-4eb3-ba04-ae67034abc95)
 
-**Cubic Trend Model**  
+**3. Cubic Trend Model**  
 ![Screenshot 2024-10-22 001925](https://github.com/user-attachments/assets/443187c4-eb9f-4079-85bd-ed94a77ae80d)
 
 #### 🔶 Identify two measures of forecast errors, evaluate the statistics for each method, and justify the most appropriate forecasting method.
 
 The two prediction error measures used are Mean Absolute Error (MAE) and Root Mean Square Error (RMSE):
 
-👉 MAE averages absolute errors, making it easy for non-technical stakeholders to understand. It treats all errors equally, which is important when every forecasting error could have a significant impact, ensuring no error is over- or under-emphasized.
+1. MAE averages absolute errors, making it easy for non-technical stakeholders to understand. It treats all errors equally, which is important when every forecasting error could have a significant impact, ensuring no error is over- or under-emphasized.
 
-👉 RMSE is more sensitive to larger errors by squaring them, which is crucial when forecasting critical variables like fertility rates. It helps identify large mistakes that can lead to planning issues in sectors like healthcare and education.
+2. RMSE is more sensitive to larger errors by squaring them, which is crucial when forecasting critical variables like fertility rates. It helps identify large mistakes that can lead to planning issues in sectors like healthcare and education.
 
-👉 Combining Both: MAE provides a straightforward view of overall model accuracy, while RMSE highlights large errors. Together, they offer a comprehensive picture of model performance, balancing average accuracy with the severity of outliers.
+3. Combining Both: MAE provides a straightforward view of overall model accuracy, while RMSE highlights large errors. Together, they offer a comprehensive picture of model performance, balancing average accuracy with the severity of outliers.
 
 ∴ The Cubic Trend model was found to be the most suitable, with the lowest RMSE (0.1767227) and MAE (0.1405531) values.
 
@@ -60,9 +60,9 @@ The PACF plot reveals a significant drop after the first lag, suggesting an auto
 
 To confirm, the Unit Root and KPSS tests were performed:
 
-👉 Unit Root Test: The p-value (0.1401) exceeds 0.05, meaning the null hypothesis is not rejected, and there is insufficient evidence to claim the series is stationary.
+1. Unit Root Test: The p-value (0.1401) exceeds 0.05, meaning the null hypothesis is not rejected, and there is insufficient evidence to claim the series is stationary.
 
-👉 KPSS Test (Trend Stationarity): The p-value (0.01) is below 0.05, leading to the rejection of the null hypothesis, indicating that the series is not trend-stationary.
+2. KPSS Test (Trend Stationarity): The p-value (0.01) is below 0.05, leading to the rejection of the null hypothesis, indicating that the series is not trend-stationary.
 
 Based on these results, the `ndiffs()` function recommended second-order differencing to achieve stationarity. First-order differencing was performed, but the time series remained non-stationary (p-values: 0.107 for Unit Root and 0.03287 for KPSS), requiring second-order differencing. After applying it, the series became stationary and trend-stationary, as confirmed by p-values of 0.01 (Unit Root) and 0.1 (KPSS).
 
@@ -95,11 +95,11 @@ To explore further, the `auto.arima()` function was used, identifying ARIMA(0,2,
 
 To assess the adequacy of both models, the `checkresiduals()` function was used, focusing on two aspects: the Ljung-Box test and the ACF plot of the residuals.
 
-👉 Ljung-Box Test: The null hypothesis states that the residuals are random, indicating an adequate model. With p-values of 0.3139 for ARIMA(1,2,1) and 0.09844 for ARIMA(0,2,1), both are above 0.05, meaning the null hypothesis is not rejected.
+1. Ljung-Box Test: The null hypothesis states that the residuals are random, indicating an adequate model. With p-values of 0.3139 for ARIMA(1,2,1) and 0.09844 for ARIMA(0,2,1), both are above 0.05, meaning the null hypothesis is not rejected.
 
 ∴ There is no evidence to suggest that either model is inadequate at the 5% significance level.
 
-👉 ACF Plot of Residuals: Both models’ ACF plots show that all autocorrelations are within the confidence bounds, and no bars exceed the significance thresholds, indicating no significant autocorrelation.
+2. ACF Plot of Residuals: Both models’ ACF plots show that all autocorrelations are within the confidence bounds, and no bars exceed the significance thresholds, indicating no significant autocorrelation.
 
 ∴ This suggests that the residuals behave as white noise, further supporting the adequacy of both models.
 
@@ -109,13 +109,13 @@ To assess the significance of the coefficient parameters in both models, the `co
 
 **ARIMA(1,2,1) Model:**
 
-👉 AR1 Component: The null hypothesis suggests the AR1 component equals zero. With a p-value of 0.2944 (above 0.05), the null hypothesis cannot be rejected, indicating insufficient evidence to conclude that the AR1 component plays a significant role.
+1. AR1 Component: The null hypothesis suggests the AR1 component equals zero. With a p-value of 0.2944 (above 0.05), the null hypothesis cannot be rejected, indicating insufficient evidence to conclude that the AR1 component plays a significant role.
 
-👉 MA1 Component: The null hypothesis is that the MA1 component equals zero. With a p-value of 9.465e-14 (below 0.05), the null hypothesis is rejected, confirming that the MA1 component is significant at the 5% level.
+2. MA1 Component: The null hypothesis is that the MA1 component equals zero. With a p-value of 9.465e-14 (below 0.05), the null hypothesis is rejected, confirming that the MA1 component is significant at the 5% level.
 
 **ARIMA(0,2,1) Model:**
 
-👉 MA1 Component: The null hypothesis suggests the MA1 component equals zero. With a p-value of 3.049e-07 (below 0.05), the null hypothesis is rejected, confirming that the MA1 component is significant at the 5% significance threshold.
+1. MA1 Component: The null hypothesis suggests the MA1 component equals zero. With a p-value of 3.049e-07 (below 0.05), the null hypothesis is rejected, confirming that the MA1 component is significant at the 5% significance threshold.
 
 #### 🔶 Calculate forecast errors for the developed ARIMA or SARIMA models.
 
